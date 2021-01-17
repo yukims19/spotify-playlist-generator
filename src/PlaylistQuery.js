@@ -1,16 +1,14 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { getSearchPlaylistQuery } from "./queries/queries";
+import { getPlaylistQuery } from "./queries/queries";
 import { auth, APP_ID } from "./ongraphAuth";
 import Error from "./Error";
-import SearchPlaylistResult from "./SearchPlaylistResult";
 
-const SearchPlaylistQuery = (props) => {
+const PlaylistQuery = (props) => {
   const results = useQuery(
-    ["getSearchPlaylistQuery", { query: props.query }],
-    getSearchPlaylistQuery
+    ["getPlaylistQuery", { id: props.id }],
+    getPlaylistQuery
   );
-
   const { isFetching, refetch } = results;
 
   if (isFetching) return <pre>Loading</pre>;
@@ -21,7 +19,7 @@ const SearchPlaylistQuery = (props) => {
 
   return (
     <div>
-      {data && <SearchPlaylistResult data={data} />}
+      {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
       {!data && <Error errors={errors} networkError={networkError} />}
       <br />
       <button
@@ -44,10 +42,10 @@ const SearchPlaylistQuery = (props) => {
       >
         {needsLoginService
           ? `Log in to ${needsLoginService}`
-          : "Run query: SearchPlaylist"}
+          : "Run query: Playlist"}
       </button>
     </div>
   );
 };
 
-export default SearchPlaylistQuery;
+export default PlaylistQuery;

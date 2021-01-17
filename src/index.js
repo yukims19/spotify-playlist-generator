@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./styles.css";
 
-
-import SearchPlaylist from './SearchPlaylist'
+import SearchPlaylist from "./SearchPlaylist";
+import Playlist from "./Playlist";
 
 /* import { SubscriptionClient } from "onegraph-subscription-client"; */
 /* const subscriptionClient = new SubscriptionClient(APP_ID, {
@@ -12,11 +12,11 @@ import SearchPlaylist from './SearchPlaylist'
  *   lazy: true
  * }); */
 
-
 const container = (
-    <>
-        <SearchPlaylist/>
-    </>
+  <>
+    <SearchPlaylist />
+    <Playlist />
+  </>
 );
 
 ReactDOM.render(container, document.getElementById("root"));

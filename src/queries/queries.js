@@ -2,7 +2,7 @@ import { fetchData } from "../fetchData";
 
 export const getPlaylistQuery = async (key, variables) => {
   const PLAYLIST_QUERY = `
-query Playlist($id: String = "37i9dQZF1DX4WYpdgoIcn6") {
+query Playlist($id: String) {
 spotify {
   playlist(id: $id) {
     name
