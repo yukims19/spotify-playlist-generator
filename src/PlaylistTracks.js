@@ -8,11 +8,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
   },
 }));
-const SearchPlaylistResult = ({
-  data,
-  playlistIdOnFocus,
-  setPlaylistIdOnFocus,
-}) => {
+const PlaylistTracks = ({ data, playlistIdOnFocus, setPlaylistIdOnFocus }) => {
   const classes = useStyles();
   const playlist = data.spotify?.search?.playlists;
   return (
@@ -55,4 +51,4 @@ const SearchPlaylistResult = ({
     </div>
   );
 };
-export default SearchPlaylistResult;
+export default PlaylistTracks;

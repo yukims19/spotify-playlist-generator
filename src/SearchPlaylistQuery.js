@@ -21,7 +21,7 @@ const SearchPlaylistQuery = (props) => {
 
   return (
     <div>
-      {data && <SearchPlaylistResult data={data} />}
+      {data && <SearchPlaylistResult data={data} {...props} />}
       {!data && <Error errors={errors} networkError={networkError} />}
       <br />
       <button

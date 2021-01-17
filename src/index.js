@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "./styles.css";
 
 import SearchPlaylist from "./SearchPlaylist";
-import Playlist from "./Playlist";
+import PlaylistQuery from "./PlaylistQuery";
 
 /* import { SubscriptionClient } from "onegraph-subscription-client"; */
 /* const subscriptionClient = new SubscriptionClient(APP_ID, {
@@ -12,11 +12,17 @@ import Playlist from "./Playlist";
  *   lazy: true
  * }); */
 
-const container = (
-  <>
-    <SearchPlaylist />
-    <Playlist />
-  </>
-);
+function App() {
+  const [playlistIdOnFocus, setPlaylistIdOnFocus] = useState();
+  return (
+    <>
+      <SearchPlaylist
+        playlistIdOnFocus={playlistIdOnFocus}
+        setPlaylistIdOnFocus={setPlaylistIdOnFocus}
+      />
+      <PlaylistQuery id={playlistIdOnFocus} />
+    </>
+  );
+}
 
-ReactDOM.render(container, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
